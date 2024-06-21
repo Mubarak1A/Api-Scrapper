@@ -58,7 +58,7 @@ def send_email(send_from, send_to, subject, body, files=None):
     
     smtp = smtplib.SMTP('smtp.gmail.com: 587')
     smtp.starttls()
-    smtp.login(send_from, 'fovfzzequyjqmyqy')
+    smtp.login(send_from, '') #replace the empty string wit your email password
     smtp.sendmail(send_from, send_to, msg.as_string())
     smtp.close()
 
@@ -66,5 +66,5 @@ def send_email(send_from, send_to, subject, body, files=None):
 if __name__ == "__main__":
     json = get_job_postings()[1:]
     output_jobs_to_xls(json)
-    send_email('adesinamubarak123@gmail.com', ['fortunatebusiness111@gmail.com', 'andywork870@gmail.com','apionly123@gmail.com', 'adesinafawziyat@gmail.com'], 'Jobs Posting',
+    send_email('THIS SHOULD BE YOUR EMAIL', ['THIS SHOULD BE LIST OF EMAILS YOU WANT TO SEND MAIL TO'], 'Jobs Posting',
                'Please find attached a list of jobs postings to this email.', files=['remote_jobs.xls'])
